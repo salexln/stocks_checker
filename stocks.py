@@ -44,8 +44,7 @@ def checkStocks(max_iterations):
 
 			prev_prices[name].append(curr_price_clean)
 
-			#reset all colors
-			print(Fore.RESET + Back.RESET + Style.RESET_ALL)
+			
 			if change != 0.0:
 				if change > 0.0:
 					print name, ':', curr_price_clean, ',',Fore.GREEN + str(change), '%'		
@@ -53,7 +52,8 @@ def checkStocks(max_iterations):
 					print name, ':', curr_price_clean, ',',Fore.RED + str(change), '%'		
 			else:
 				print name, ':', curr_price_clean, ', NO CHANGE'
-			Style.RESET_ALL
+			#reset all colors
+			print(Fore.RESET + Back.RESET + Style.RESET_ALL)
 
 		print '\n'
 		curr_iter += 1
@@ -70,6 +70,6 @@ print '*         Blimp stocks checker         *'
 print '* [data taken from finance.google.com] *'
 print 40*'*'
 
-checkStocks(3)
+checkStocks(10)
 
 
