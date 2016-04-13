@@ -1,4 +1,3 @@
-# stocks_checker
 Stocks Checker v0.1
 ==============
 
