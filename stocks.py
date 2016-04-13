@@ -2,6 +2,9 @@
 import urllib
 import re
 import time
+
+from colorama import Fore, Back, Style
+
 def get_quote(symbol):
     base_url = 'http://finance.google.com/finance?q='
     content = urllib.urlopen(base_url + symbol).read()
@@ -41,10 +44,16 @@ def checkStocks(max_iterations):
 
 			prev_prices[name].append(curr_price_clean)
 
+			#reset all colors
+			print(Fore.RESET + Back.RESET + Style.RESET_ALL)
 			if change != 0.0:
-				print name, ':', curr_price_clean, ',',change, '%'		
+				if change > 0.0:
+					print name, ':', curr_price_clean, ',',Fore.GREEN + str(change), '%'		
+				else:
+					print name, ':', curr_price_clean, ',',Fore.RED + str(change), '%'		
 			else:
 				print name, ':', curr_price_clean, ', NO CHANGE'
+			Style.RESET_ALL
 
 		print '\n'
 		curr_iter += 1
@@ -56,13 +65,11 @@ def checkStocks(max_iterations):
 		print '    ', name, ', min = ', min(prev_prices[name]), ', max = ', max(prev_prices[name])
 	
 
-
-
 print 40*'*'
 print '*         Blimp stocks checker         *'
 print '* [data taken from finance.google.com] *'
 print 40*'*'
 
-checkStocks(10)
+checkStocks(3)
 
 
