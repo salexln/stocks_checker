@@ -1,8 +1,4 @@
 #!/usr/bin/env python
-print "Starting the algorithm..."
-
-
-
 import urllib
 import re
 import time
@@ -16,21 +12,17 @@ def get_quote(symbol):
         quote = "error"
     return quote
 
-#****************************************************************************************************************************#
-
-#this method runs for runningTime seconds
 def checkStocks(max_iterations):
 	
 
 	stock_names = ['yhoo', 'goog', 'aapl']
 	prev_prices = {}
 
-	#init prev value:
+	#init prev values:
 	for name in stock_names:
 		prev_prices[name] = [-1]
 
 
-	# print 'Getting prices for ', name
 	curr_iter = 0
 	while (curr_iter < max_iterations):
 		for name in stock_names:			
@@ -54,22 +46,23 @@ def checkStocks(max_iterations):
 			else:
 				print name, ':', curr_price_clean, ', NO CHANGE'
 
+		print '\n'
 		curr_iter += 1
-			
-	print '\nSummery:	'
-	for name in stock_names:
-		print name, ', min = ', min(prev_prices[name]), ', max = ', max(prev_prices[name])
 	
-	# print 'There were ',errors,' errors'
-#****************************************************************************************************************************#
-#main:
+	print '\n'
+	print 40*'*'			
+	print 'Summery:	'
+	for name in stock_names:
+		print '    'name, ', min = ', min(prev_prices[name]), ', max = ', max(prev_prices[name])
+	
 
-#t1= Trader("AMAT",0,10000)
-#print t1
-#t1.setAmount(20)
-#t1.runDemo()
 
+
+print 40*'*'
+print '*         Blimp stocks checker         *'
+print '* [data taken from finance.google.com] *'
+print 40*'*'
 
 checkStocks(3)
 
-print "Done!"
+
