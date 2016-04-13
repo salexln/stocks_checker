@@ -53,7 +53,7 @@ def checkStocks(max_iterations):
 	print 40*'*'			
 	print 'Summery:	'
 	for name in stock_names:
-		print '    'name, ', min = ', min(prev_prices[name]), ', max = ', max(prev_prices[name])
+		print '    ', name, ', min = ', min(prev_prices[name]), ', max = ', max(prev_prices[name])
 	
 
 
@@ -63,6 +63,6 @@ print '*         Blimp stocks checker         *'
 print '* [data taken from finance.google.com] *'
 print 40*'*'
 
-checkStocks(3)
+checkStocks(10)
 
 
